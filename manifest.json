@@ -1,0 +1,6 @@
+{
+    "name": "Apple Music to YouTube Music",
+    "description": "A chrome extension that lets you search for tracks from Apple Music on YouTube Music quickly",
+    "version": "0.0.0",
+    "manifest_version": 3
+}
