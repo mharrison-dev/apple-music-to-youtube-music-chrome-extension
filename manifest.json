@@ -2,5 +2,15 @@
     "name": "Apple Music to YouTube Music",
     "description": "A chrome extension that lets you search for tracks from Apple Music on YouTube Music quickly",
     "version": "0.0.0",
-    "manifest_version": 3
+    "manifest_version": 3,
+    "content_scripts": [
+        {
+            "js": [
+                "scripts/youtube-music-search-button-for-apple-music-album-page.js"
+            ],
+            "matches": [
+                "https://music.apple.com/*/album/*"
+            ]
+        }
+    ]
 }
