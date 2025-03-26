@@ -5,6 +5,9 @@
     "manifest_version": 3,
     "content_scripts": [
         {
+            "css": [
+                "styles/youtube-music-search-button-for-apple-music-album-page.css"
+            ],
             "js": [
                 "scripts/youtube-music-search-button-for-apple-music-album-page.js"
             ],

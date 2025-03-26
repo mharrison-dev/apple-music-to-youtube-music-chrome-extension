@@ -1,0 +1,9 @@
+.youtube-music-search-button {
+    display: flex;
+    margin-left: auto;
+    padding: 1rem;
+}
+
+.youtube-music-search-button:hover {
+    text-decoration: underline;
+}
