@@ -21,6 +21,16 @@ function shouldAddYouTubeMusicSearchButton(songsListRowNode) {
 }
 
 function createYouTubeMusicSearchButton(songsListRowNode) {
+    return (isEnabled(songsListRowNode))
+        ? createEnabledYouTubeMusicSearchButton(songsListRowNode)
+        : createDisabledYouTubeMusicSearchButton();
+}
+
+function isEnabled(songsListRowNode) {
+    return !songsListRowNode.classList.contains('songs-list-row--disabled');
+}
+
+function createEnabledYouTubeMusicSearchButton(songsListRowNode) {
     let youTubeMusicSearchButton = document.createElement('button');
     youTubeMusicSearchButton.className = 'youtube-music-search-button';
     youTubeMusicSearchButton.innerText = 'Search for Track on YouTube Music';
@@ -36,6 +46,13 @@ function createYouTubeMusicSearchButton(songsListRowNode) {
         }
     };
 
+    return youTubeMusicSearchButton;
+}
+
+function createDisabledYouTubeMusicSearchButton() {
+    let youTubeMusicSearchButton = document.createElement('button');
+    youTubeMusicSearchButton.className = 'disabled-youtube-music-search-button';
+    youTubeMusicSearchButton.disabled = true;
     return youTubeMusicSearchButton;
 }
 
