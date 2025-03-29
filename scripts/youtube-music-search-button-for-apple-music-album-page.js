@@ -17,7 +17,8 @@ function getSongsListRowNodes() {
 }
 
 function shouldAddYouTubeMusicSearchButton(songsListRowNode) {
-    return !songsListRowNode.querySelector('.youtube-music-search-button');
+    return !songsListRowNode.querySelector('.youtube-music-search-button')
+        && !songsListRowNode.querySelector('.disabled-youtube-music-search-button');
 }
 
 function createYouTubeMusicSearchButton(songsListRowNode) {
