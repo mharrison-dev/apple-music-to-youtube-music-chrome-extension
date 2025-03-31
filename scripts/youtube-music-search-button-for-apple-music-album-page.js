@@ -1,3 +1,18 @@
+let mutationObserver = undefined;
+
+chrome.runtime.onMessage.addListener(function setUpMutationObserver(message, sender, sendResponse) {
+    if (mutationObserver) {
+        mutationObserver.disconnect();
+    }
+
+    if (message.url.includes('/album/')) {
+        let bodyNode = document.getElementsByTagName('body')[0];
+        let mutationObserverConfiguration = { attributes: true, subtree: true };
+        mutationObserver = new MutationObserver(addYouTubeMusicSearchButtonToEachTrack);
+        mutationObserver.observe(bodyNode, mutationObserverConfiguration);
+    }
+});
+
 function addYouTubeMusicSearchButtonToEachTrack() {
     let songsListRowNodes = getSongsListRowNodes();
     for (let songsListRowNode of songsListRowNodes) {
@@ -56,8 +71,3 @@ function createDisabledYouTubeMusicSearchButton() {
     youTubeMusicSearchButton.disabled = true;
     return youTubeMusicSearchButton;
 }
-
-let bodyNode = document.getElementsByTagName('body')[0];
-let mutationObserverConfiguration = { attributes: true, subtree: true };
-let mutationObserver = new MutationObserver(addYouTubeMusicSearchButtonToEachTrack);
-mutationObserver.observe(bodyNode, mutationObserverConfiguration);

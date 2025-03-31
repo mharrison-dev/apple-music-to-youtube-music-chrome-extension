@@ -12,8 +12,14 @@
                 "scripts/youtube-music-search-button-for-apple-music-album-page.js"
             ],
             "matches": [
-                "https://music.apple.com/*/album/*"
+                "https://music.apple.com/*"
             ]
         }
+    ],
+    "background": {
+        "service_worker": "scripts/url-mutation-observer.js"
+    },
+    "permissions": [
+        "tabs"
     ]
 }
